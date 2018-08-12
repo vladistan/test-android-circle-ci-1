@@ -15,4 +15,6 @@
     </string>
     <string name="hello">Hello</string>
     <string name="chng_hello">Change Hello</string>
+    <string name="helloUser">Hello user</string>
+    <string name="chng_hello_email">Hello me</string>
 </resources>

@@ -18,6 +18,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -81,6 +82,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
+
+        final TextView mHello = findViewById(R.id.hello);
+
+        Button mChangeHello = (Button) findViewById(R.id.chng_hello);
+        mChangeHello.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mHello.setText(R.string.helloUser);
+            }
+        });
+
+        Button mHelloMe = (Button) findViewById(R.id.chng_hello_email);
+        mHelloMe.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mHello.setText(mEmailView.getText().toString());
+            }
+        });
+
+
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {

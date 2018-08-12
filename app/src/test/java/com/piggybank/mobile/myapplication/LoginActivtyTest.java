@@ -1,7 +1,10 @@
 package com.piggybank.mobile.myapplication;
 
+import android.app.MediaRouteButton;
 import android.app.Notification;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.junit.Before;
@@ -19,10 +22,14 @@ import static org.assertj.core.api.Assertions.*;
 public class LoginActivtyTest {
 
     private LoginActivity mainActivity;
+    private TextView helloLabel;
+    private Button chgHelloBtn;
 
     @Before
     public void setUp() {
         mainActivity = setupActivity(LoginActivity.class);
+        helloLabel = mainActivity.findViewById(R.id.hello);
+        chgHelloBtn = mainActivity.findViewById(R.id.chng_hello);
     }
 
     @Test
@@ -34,17 +41,32 @@ public class LoginActivtyTest {
     @Test
     public void shouldHaveLabelHello() {
 
-        TextView helloLabel = mainActivity.findViewById(R.id.hello);
         assertThat(helloLabel.getText()).isEqualTo("Hello");
     }
 
     @Test
     public void changeGreeting() {
 
-        Button chgHelloBtn = mainActivity.findViewById(R.id.chng_hello);
-        assertThat(chgHelloBtn.getText()).isEqualTo("Change");
+        assertThat(chgHelloBtn.getText()).isEqualTo("Change Hello");
 
 
+    }
+
+    @Test
+    public void shouldChangeHelloLabelWhenChangeBtnIsClicked()
+    {
+        chgHelloBtn.performClick();
+        assertThat(helloLabel.getText()).isEqualTo("Hello user");
+    }
+
+    @Test
+    public void shouldSayHelloToEmailAddr() {
+        EditText emailField = mainActivity.findViewById(R.id.email);
+        emailField.setText("bob@bob.com");
+
+        Button chgHelloEmail = mainActivity.findViewById(R.id.chng_hello_email);
+        chgHelloEmail.performClick();
+        assertThat(helloLabel.getText()).isEqualTo("bob@bob.com");
     }
 
 }
