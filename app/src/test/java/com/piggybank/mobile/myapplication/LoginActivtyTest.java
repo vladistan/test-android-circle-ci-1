@@ -42,7 +42,7 @@ public class LoginActivtyTest {
     }
 
     @Test
-    public void changeGreeting() {
+    public void shouldHaveChangeHelloButton() {
 
         assertThat(chgHelloBtn.getText()).isEqualTo("Change Hello");
 
