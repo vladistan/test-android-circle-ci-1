@@ -1,8 +1,5 @@
 package com.piggybank.mobile.myapplication;
 
-import android.app.MediaRouteButton;
-import android.app.Notification;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -53,8 +50,7 @@ public class LoginActivtyTest {
     }
 
     @Test
-    public void shouldChangeHelloLabelWhenChangeBtnIsClicked()
-    {
+    public void shouldChangeHelloLabelWhenChangeBtnIsClicked() {
         chgHelloBtn.performClick();
         assertThat(helloLabel.getText()).isEqualTo("Hello user");
     }
